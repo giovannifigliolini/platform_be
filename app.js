@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const atuhorizationRoutes = require("./routes/authorization")
 
 const app = express();
 
@@ -24,5 +25,7 @@ mongoose
     );
     next();
   });
+
+  app.use("/api/authorization", atuhorizationRoutes);
 
   module.exports = app;
